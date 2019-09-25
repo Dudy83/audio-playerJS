@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MP3-Player</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+
+    <div class="audio-container">
+
+        <div id="brand-player">
+
+            <img id="song-image" src="images/songImage.jpg" width="86px">
+
+                <div  class="song-title">
+                    <p id="songTitle">My song title will goes here</p>
+                    <p id="songAuthor">Author</p>
+                </div>
+
+        </div>
+
+        <div class="player">
+            
+            <div class="controllers">
+                <img src="images/previous.png" alt="previous-track" width="15px" onclick="previous();">
+                <img id="play-pause" src="images/play.png" alt="play-track" width="40px" onclick="playOrPauseSong(this);">
+                <img src="images/next.png" alt="next-track" width="15px" onclick="next();">
+            </div>
+
+            <div id="audio-player-time">
+                <div id="currentTime" class="current-time">00:00</div>
+                    <input type="range" id="songSlider" class="song-slider" min="0" step="1" onchange="seekSong();" />
+                <div id="duration" class="duration">00:00</div>
+            </div>
+
+        </div>
+
+        <div class="volume">
+                <img id="speaker-volume" src="images/volume.png" alt="volume" width="16px">
+                <input type="range" id="songVolume" class="song-volume" min="0" max="1" step="0.01" onchange="adjustVolume();" />
+        </div>
+   
+    </div>
+
+    <script src="main.js"></script>
+
+</body>
+</html>
