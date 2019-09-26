@@ -152,6 +152,7 @@ function clickMuted()
     }
 }
 
+//Volume Progress Bar 
 var progressBarVolume = document.getElementById('songVolume');
 
 progressBarVolume.addEventListener('mousemove', updateProgressBarVolume);
