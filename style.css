@@ -3,6 +3,8 @@
 body
 {
     margin: 0;
+    animation-name: overflowHidden;
+    animation-duration: 0.7s;
 }
 
 .audio-container
@@ -15,6 +17,8 @@ body
     display: flex;
     justify-content: center;
     font-family: 'Fira Sans';
+    animation-name: audioPlayerSlideIn;
+    animation-duration: 0.7s;
 }
 
 .song-title
@@ -86,7 +90,7 @@ body
 
 .audio-container img:hover:not(#song-image)
 {
-    transform: scale(1.1);
+    transform: scale(1.05);
     cursor: pointer;
 }
 
@@ -95,7 +99,7 @@ body
   width: 785px;
   height: 0.7vh;
   position: absolute;
-  bottom: 23px;
+  bottom: 21px;
   left: 29.55%;
   z-index: 2;
 }
@@ -118,6 +122,7 @@ body
   bottom: 47px;
   right: 23px;
   z-index: 2;
+
 }
 
 #progressVolume
@@ -128,6 +133,8 @@ body
     width: 50%;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px; 
+    animation-name: audioPlayerSlideIn;
+    animation-duration: 0.7s;
 }
 
 input[type=range] 
@@ -138,6 +145,7 @@ input[type=range]
     width: 100%;
     margin-right: 1rem;
     margin-left: 1rem;
+    height: 0px;
 }
 
 input[type=range]:focus 
@@ -173,28 +181,30 @@ input[type=range]::-webkit-slider-runnable-track
 {
     background: #6E6E6E;
 }
+
+input[type=range]::-moz-range-thumb
+{
+    box-shadow: 0px 0px 2px #000000;
+    border: 0px solid #000000;
+    height: 15px;
+    width: 15px;
+    border-radius: 10px;
+    background: #FFFFFF;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -4px;
+}
   
 input[type=range]::-moz-range-track 
 {
     width: 100%;
-    height: 20px;
+    height: 7px;
     cursor: pointer;
     animate: 0.2s;
     box-shadow: 0px 0px 0px #000000;
     background: #6E6E6E;
     border-radius: 5px;
     border: 0px solid #000000;
-}
-
-input[type=range]::-moz-range-thumb 
-{
-    box-shadow: 0px 0px 2px #000000;
-    border: 0px solid #000000;
-    height: 25px;
-    width: 25px;
-    border-radius: 20px;
-    background: #fff;
-    cursor: pointer;
 }
 
 input[type=range]::-ms-track 
@@ -244,5 +254,28 @@ input[type=range]:focus::-ms-fill-lower
 input[type=range]:focus::-ms-fill-upper 
 {
     background: #6E6E6E;
+}
+
+@keyframes audioPlayerSlideIn
+{
+  0%{
+    transform: translateY(102px);
+    opacity: 0;
+  }
+
+  100%{
+    transform: translateX(0px);
+  }
+}
+
+@keyframes overflowHidden
+{
+  0%{
+    overflow: hidden;
+  }
+
+  100%{
+    overflow: hidden;
+  }
 }
 
