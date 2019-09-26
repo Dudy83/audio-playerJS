@@ -43,7 +43,7 @@ body
 
 #songSlider
 {
-    width: 800px;
+    width: 100%;
 }
 
 #audio-player-time
@@ -52,6 +52,7 @@ body
     justify-content: center;
     align-items: center;
     color: #fff;
+    width: 100%;
 }
 
 .player
@@ -94,166 +95,71 @@ body
     cursor: pointer;
 }
 
-#progress-bar
+#songVolume
 {
-  width: 785px;
-  height: 0.7vh;
-  position: absolute;
-  bottom: 21px;
-  left: 29.55%;
-  z-index: 2;
+  margin-right: 1rem;
 }
 
-#progress
-{
-    height: 0.7vh;
-    background: #994444;
-    border-radius: 5rem;
-    width: 0%;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px; 
-}
-
-#progressBarVolume
-{
-  width: 129px;
-  height: 0.7vh;
-  position: absolute;
-  bottom: 47px;
-  right: 23px;
-  z-index: 2;
-
-}
-
-#progressVolume
-{
-    height: 0.7vh;
-    background: #994444;
-    border-radius: 5rem;
-    width: 50%;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px; 
-    animation-name: audioPlayerSlideIn;
-    animation-duration: 0.7s;
-}
-
-input[type=range] 
-{
-    border-radius: 50%;
-    -webkit-appearance: none;
-    margin: 10px 0;
-    width: 100%;
-    margin-right: 1rem;
-    margin-left: 1rem;
-    height: 0px;
-}
-
-input[type=range]:focus 
-{
-    outline: none;
-}
-
-input[type=range]::-webkit-slider-runnable-track 
-{
-    width: 100%;
-    height: 7px;
-    cursor: pointer;
-    animate: 0.2s;
-    box-shadow: 0px 0px 0px #000000;
-    border-radius: 5px;
-    border: 0px solid #000000;
-}
-
-input[type=range]::-webkit-slider-thumb 
-{
-    box-shadow: 0px 0px 2px #000000;
-    border: 0px solid #000000;
-    height: 15px;
-    width: 15px;
-    border-radius: 10px;
-    background: #FFFFFF;
-    cursor: pointer;
-    -webkit-appearance: none;
-    margin-top: -4px;
-}
-
-input[type=range]::-webkit-slider-runnable-track 
-{
-    background: #6E6E6E;
-}
-
-input[type=range]::-moz-range-thumb
-{
-    box-shadow: 0px 0px 2px #000000;
-    border: 0px solid #000000;
-    height: 15px;
-    width: 15px;
-    border-radius: 10px;
-    background: #FFFFFF;
-    cursor: pointer;
-    -webkit-appearance: none;
-    margin-top: -4px;
-}
+#songVolume {
+  -webkit-appearance: none;
+  -moz-apperance: none;
+  border-radius: 6px;
+  height: 6px;
   
-input[type=range]::-moz-range-track 
-{
-    width: 100%;
-    height: 7px;
-    cursor: pointer;
-    animate: 0.2s;
-    box-shadow: 0px 0px 0px #000000;
-    background: #6E6E6E;
-    border-radius: 5px;
-    border: 0px solid #000000;
-}
-
-input[type=range]::-ms-track 
-{
-    width: 100%;
-    height: 7px;
-    cursor: pointer;
-    animate: 0.2s;
-    background: transparent;
-    border-color: transparent;
-    color: transparent;
-}
-
-input[type=range]::-ms-fill-lower 
-{
-    background: #6E6E6E;
-    border: 0px solid #000000;
-    border-radius: 10px;
-    box-shadow: 0px 0px 0px #000000;
-}
+  background-image: -webkit-gradient(linear,
+      left top, 
+      right top, 
+      color-stop(50%, #df7164),
+      color-stop(50%, #F5D0CC));
   
-input[type=range]::-ms-fill-upper 
-{
-    background: #6E6E6E;
-    border: 0px solid #000000;
-    border-radius: 10px;
-    box-shadow: 0px 0px 0px #000000;
+  background-image: -moz-linear-gradient(left center,
+      #DF7164 0%, #DF7164 50%,
+      #F5D0CC 50%, #F5D0CC 100%);
 }
 
-input[type=range]::-ms-thumb
-{
-    margin-top: 1px;
-    box-shadow: 0px 0px 2px #000000;
-    border: 0px solid #000000;
-    height: 15px;
-    width: 15px;
-    border-radius: 10px;
-    background: #FFFFFF;
-    cursor: pointer;
-}
-
-input[type=range]:focus::-ms-fill-lower 
-{
-    background: #6E6E6E;
-}
+#songSlider {
+  -webkit-appearance: none;
+  -moz-apperance: none;
+  border-radius: 6px;
+  height: 6px;
   
-input[type=range]:focus::-ms-fill-upper 
-{
-    background: #6E6E6E;
+  background-image: -webkit-gradient(linear,
+      left top, 
+      right top, 
+      color-stop(0%, #df7164),
+      color-stop(0%, #F5D0CC));
+  
+  background-image: -moz-linear-gradient(left center,
+      #DF7164 0%, #DF7164 0%,
+      #F5D0CC 0%, #F5D0CC 100%);
+}
+
+input[type="range"]::-moz-range-track {
+  border: none;
+  background: none;
+  outline: none;
+}
+
+input[type=range]:focus {
+  outline: none;
+  border: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  background-color: #df7164;
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
+}
+
+input[type=range]::-moz-range-thumb {
+  -moz-appearance: none !important;
+  background-color: #df7164;
+  border: none;
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
 }
 
 @keyframes audioPlayerSlideIn
@@ -279,3 +185,23 @@ input[type=range]:focus::-ms-fill-upper
   }
 }
 
+@media (max-width: 800px){
+  
+  .song-title
+  {
+    display: none;
+  }
+  #song-image
+  {
+    width: 64px;
+  }
+  #currentTime, #duration
+  {
+    font-size: 80%;
+  }
+  #songVolume
+  {
+    width: 60% !important;
+
+  }
+}

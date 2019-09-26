@@ -21,7 +21,6 @@ var duration = document.getElementById('duration');
 var volumeSlider = document.getElementById('songVolume');
 var playPause = document.getElementById('play-pause');
 var speaker = document.getElementById('speaker-volume');
-let progress = document.getElementById('progress');
 let volumeProgress = document.getElementById('progressVolume');
 
 var song = new Audio();
@@ -47,8 +46,16 @@ function updateSongSlider()
     var c = Math.round(song.currentTime);
     songSlider.value = c;
     currentTime.textContent = convertTime(c);
-    var percent = (100 * ( song.currentTime / song.duration )) + "%";
-    progress.style.width = percent;
+    //update the input[range] background color as a progress bar
+    var progressBar = document.getElementById('songSlider');
+    var val = ((progressBar.value - progressBar.min) / (progressBar.max - progressBar.min))
+    var percent = val * 100;
+    progressBar.style.backgroundImage = 
+    '-webkit-gradient(linear, left top, right top, ' +
+    'color-stop(' + percent + '%, #df7164), ' +
+    'color-stop(' + percent + '%, #F5D0CC)' +
+    ')';
+
 }
 
 function convertTime(secs)
@@ -110,8 +117,6 @@ function adjustVolume()
         speaker.src = "images/low-volume.png";
     else
         speaker.src = "images/volume.png";
-
-    volumeProgress.style.width = song.volume * 100 + "%";
 }
 
 speaker.addEventListener('click', clickMuted);
@@ -127,7 +132,11 @@ function clickMuted()
         volumeSlider.value = 0;
         song.volume = 0;
         speaker.src = "images/muted.png";
-        volumeProgress.style.width = song.volume * 100 + "%";
+        progressBarVolume.style.backgroundImage = 
+        '-webkit-gradient(linear, left top, right top, ' +
+        'color-stop(' + 0 + '%, #df7164), ' +
+        'color-stop(' + 0 + '%, #F5D0CC)' +
+        ')'
     }
 
     else if(volumeSlider.value <= 0)
@@ -135,6 +144,27 @@ function clickMuted()
         volumeSlider.value = a;
         song.volume = a;
         speaker.src = "images/volume.png";
-        volumeProgress.style.width = song.volume * 100 + "%";    
+        progressBarVolume.style.backgroundImage = 
+        '-webkit-gradient(linear, left top, right top, ' +
+        'color-stop(' + 50 + '%, #df7164), ' +
+        'color-stop(' + 50 + '%, #F5D0CC)' +
+        ')'
     }
 }
+
+var progressBarVolume = document.getElementById('songVolume');
+
+progressBarVolume.addEventListener('mousemove', updateProgressBarVolume);
+
+function updateProgressBarVolume()
+{
+    var val = ((progressBarVolume.value - progressBarVolume.min) / (progressBarVolume.max - progressBarVolume.min));
+    var percent = val * 100;
+    progressBarVolume.style.backgroundImage = 
+    '-webkit-gradient(linear, left top, right top, ' +
+    'color-stop(' + percent + '%, #df7164), ' +
+    'color-stop(' + percent + '%, #F5D0CC)' +
+    ')'
+}
+
+
