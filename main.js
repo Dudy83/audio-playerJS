@@ -52,10 +52,9 @@ function updateSongSlider()
     var percent = val * 100;
     progressBar.style.backgroundImage = 
     '-webkit-gradient(linear, left top, right top, ' +
-    'color-stop(' + percent + '%, #df7164), ' +
-    'color-stop(' + percent + '%, #F5D0CC)' +
+    'color-stop(' + percent + '%, #d45445), ' +
+    'color-stop(' + percent + '%, #8a7f7f)' +
     ')';
-
 }
 
 function convertTime(secs)
@@ -134,8 +133,8 @@ function clickMuted()
         speaker.src = "images/muted.png";
         progressBarVolume.style.backgroundImage = 
         '-webkit-gradient(linear, left top, right top, ' +
-        'color-stop(' + 0 + '%, #df7164), ' +
-        'color-stop(' + 0 + '%, #F5D0CC)' +
+        'color-stop(' + 0 + '%, #d45445), ' +
+        'color-stop(' + 0 + '%, #8a7f7f)' +
         ')'
     }
 
@@ -146,8 +145,8 @@ function clickMuted()
         speaker.src = "images/volume.png";
         progressBarVolume.style.backgroundImage = 
         '-webkit-gradient(linear, left top, right top, ' +
-        'color-stop(' + 50 + '%, #df7164), ' +
-        'color-stop(' + 50 + '%, #F5D0CC)' +
+        'color-stop(' + 50 + '%, #d45445), ' +
+        'color-stop(' + 50 + '%, #8a7f7f)' +
         ')'
     }
 }
@@ -163,9 +162,7 @@ function updateProgressBarVolume()
     var percent = val * 100;
     progressBarVolume.style.backgroundImage = 
     '-webkit-gradient(linear, left top, right top, ' +
-    'color-stop(' + percent + '%, #df7164), ' +
-    'color-stop(' + percent + '%, #F5D0CC)' +
+    'color-stop(' + percent + '%, #d45445), ' +
+    'color-stop(' + percent + '%, #8a7f7f)' +
     ')'
 }
-
-

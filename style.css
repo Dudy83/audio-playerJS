@@ -19,6 +19,7 @@ body
     font-family: 'Fira Sans';
     animation-name: audioPlayerSlideIn;
     animation-duration: 0.7s;
+    box-shadow: 1px 1px 4px 1px rgba(92, 92, 92, 0.62);
 }
 
 .song-title
@@ -109,12 +110,12 @@ body
   background-image: -webkit-gradient(linear,
       left top, 
       right top, 
-      color-stop(50%, #df7164),
-      color-stop(50%, #F5D0CC));
+      color-stop(50%, #d45445),
+      color-stop(50%, #8a7f7f));
   
   background-image: -moz-linear-gradient(left center,
-      #DF7164 0%, #DF7164 50%,
-      #F5D0CC 50%, #F5D0CC 100%);
+      #d45445 0%, #d45445 50%,
+      #8a7f7f 50%, #8a7f7f 100%);
 }
 
 #songSlider {
@@ -126,12 +127,12 @@ body
   background-image: -webkit-gradient(linear,
       left top, 
       right top, 
-      color-stop(0%, #df7164),
-      color-stop(0%, #F5D0CC));
+      color-stop(0%, #d45445),
+      color-stop(0%, #8a7f7f));
   
   background-image: -moz-linear-gradient(left center,
-      #DF7164 0%, #DF7164 0%,
-      #F5D0CC 0%, #F5D0CC 100%);
+      #d45445 0%, #d45445 0%,
+      #8a7f7f 0%, #8a7f7f 100%);
 }
 
 input[type="range"]::-moz-range-track {
@@ -147,10 +148,17 @@ input[type=range]:focus {
 
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none !important;
-  background-color: #df7164;
+  background-color: #ffffff;
   height: 13px;
   width: 13px;
   border-radius: 50%;
+  box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.62);
+}
+
+
+input[type=range]::-webkit-slider-thumb:hover 
+{
+  transform: scale(1.2);
 }
 
 input[type=range]::-moz-range-thumb {
@@ -160,6 +168,11 @@ input[type=range]::-moz-range-thumb {
   height: 13px;
   width: 13px;
   border-radius: 50%;
+}
+
+#separator
+{
+  display: none;
 }
 
 @keyframes audioPlayerSlideIn
@@ -185,6 +198,26 @@ input[type=range]::-moz-range-thumb {
   }
 }
 
+
+
+@media (max-width: 1350px)
+{
+  #songSlider
+  {
+    position: absolute;
+    bottom: 102px;
+    margin: 0;
+    left: 0;
+    max-width: 98.8%;
+    border-radius: 0;
+  }
+  #separator
+  {
+    display: block;
+    margin: 0 1rem;
+  }
+}
+
 @media (max-width: 800px){
   
   .song-title
@@ -203,5 +236,10 @@ input[type=range]::-moz-range-thumb {
   {
     width: 60% !important;
 
+  }
+  #songSlider
+  {
+    position: absolute;
+    bottom: 80px;
   }
 }
